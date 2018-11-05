@@ -128,7 +128,6 @@ class Jarallax {
             disableParallax: false,
             disableVideo: false,
             automaticResize: true, // use ResizeObserver to recalculate position and size of parallax image
-            contentArea: null,
 
             // video
             videoSrc: null,
