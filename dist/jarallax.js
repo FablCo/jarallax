@@ -316,6 +316,10 @@ function updateParallax() {
     } else {
         wndY = (document.documentElement || document.body.parentNode || document.body).scrollTop;
     }
+    // Use jaralaxContentSelector as a selector of a custom content area base element for Jarallax
+    if (typeof _global.window.jaralaxContentSelector !== 'undefined' && _global.window.jaralaxContentSelector) {
+        wndY = $(_global.window.jaralaxContentSelector).scrollTop();
+    }
 
     var isResized = forceResizeParallax || !oldPageData || oldPageData.width !== wndW || oldPageData.height !== wndH;
     var isScrolled = forceScrollParallax || isResized || !oldPageData || oldPageData.y !== wndY;
@@ -387,6 +391,7 @@ var Jarallax = function () {
             disableParallax: false,
             disableVideo: false,
             automaticResize: true, // use ResizeObserver to recalculate position and size of parallax image
+            contentArea: null,
 
             // video
             videoSrc: null,
